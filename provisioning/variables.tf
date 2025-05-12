@@ -20,3 +20,7 @@ variable "azs" {
   type    = list(string)
   default = ["us-east-1a", "us-east-1b"]
 }
+
+variable "region" {
+  default = "us-east-1" # o el que uses
+}
