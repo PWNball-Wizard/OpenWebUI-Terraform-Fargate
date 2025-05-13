@@ -8,6 +8,15 @@ resource "aws_security_group" "openwebui_sg" {
   description = "Allow HTTP traffic"
   vpc_id      = var.vpc_id
 
+  # Permitir tráfico HTTP (para el ALB)
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # Permitir tráfico interno al contenedor (puerto 8080 del container)
   ingress {
     from_port   = 8080
     to_port     = 8080
@@ -22,6 +31,7 @@ resource "aws_security_group" "openwebui_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
 
 resource "aws_ecs_task_definition" "openwebui_task" {
   family                   = "openwebui-task"
