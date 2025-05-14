@@ -22,6 +22,8 @@ resource "aws_security_group" "openwebui_sg" {
     to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    #Anterior en app.tfvars
+    #"930142908117.dkr.ecr.us-east-1.amazonaws.com/open-webui:latest",
   }
 
   egress {
