@@ -42,7 +42,8 @@ resource "aws_ecs_task_definition" "openwebui_task" {
   cpu                      = var.cpu
   memory                   = var.memory
 
-  execution_role_arn       = "arn:aws:iam::930142908117:role/fargateTaskExecutionRole"
+  #execution_role_arn       = "arn:aws:iam::930142908117:role/fargateTaskExecutionRole"
+  execution_role_arn = "arn:aws:iam::713881831402:role/fargateTaskExecutionRole"
 
   container_definitions = jsonencode([{
     name      = "openwebui"
